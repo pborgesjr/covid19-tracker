@@ -7,7 +7,7 @@ import { getCityInfo } from '~/services';
 import { Container } from './styles';
 
 const Cities = () => {
-  const [cities, setCities] = useState(undefined);
+  const [cities, setCities] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -19,8 +19,11 @@ const Cities = () => {
       setCities(await getCityInfo(input));
       setIsLoading(false);
     };
-
-    loadCities();
+    if (input === '') {
+      setCities([]);
+    } else {
+      loadCities();
+    }
   }, [input]);
 
   return (
@@ -32,7 +35,8 @@ const Cities = () => {
         debounceTimeout={1000}
       />
       {isLoading && <SkeletonCityCard />}
-      {cities &&
+      {!isLoading &&
+        cities &&
         cities.map((city) => (
           <CityCard key={city.city_ibge_code} city={city} />
         ))}
