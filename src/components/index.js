@@ -7,7 +7,6 @@ export { default as FloatingCities } from './FloatingCities';
 export { default as Footer } from './Footer';
 export { default as Header } from './Header';
 export { default as Input } from './Input';
-export { default as InputV2 } from './InputV2';
 export { default as Menu } from './Menu';
 export { default as PageContainer } from './PageContainer';
 export * from './Skeleton';
