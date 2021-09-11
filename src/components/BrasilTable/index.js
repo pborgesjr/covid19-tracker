@@ -1,20 +1,24 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+import { getLocale } from '~/locale';
+
 import { Container } from './styles';
 
 export const BrasilTable = () => {
   const { brazil } = useSelector((state) => state.application);
+
+  const { federalUnit, casesCount, suspectsCount, deathCount } = getLocale();
 
   return (
     <Container>
       <table>
         <thead>
           <tr>
-            <th>uf</th>
-            <th>casos</th>
-            <th>suspeitos</th>
-            <th>mortes</th>
+            <th>{federalUnit}</th>
+            <th>{casesCount}</th>
+            <th>{suspectsCount}</th>
+            <th>{deathCount}</th>
           </tr>
         </thead>
         <tbody>

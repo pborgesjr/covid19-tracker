@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { getLocale } from '~/locale';
 import InputV2 from '../InputV2';
 import CityCard from '../CityCard';
 import SkeletonCityCard from '../Skeleton/CityCard';
@@ -9,6 +10,8 @@ import SkeletonCityCard from '../Skeleton/CityCard';
 import { Container, CustomCloseCircle } from './styles';
 
 const FloatingCities = ({ isShowing, setIsShowing }) => {
+  const { countyInputPlaceholder } = getLocale();
+
   const { cities, cityLoading } = useSelector((state) => state.application);
 
   return (
@@ -17,7 +20,7 @@ const FloatingCities = ({ isShowing, setIsShowing }) => {
         <CustomCloseCircle onClick={() => setIsShowing(false)} />
       </div>
 
-      <InputV2 placeholder="Digite o nome de um município" />
+      <InputV2 placeholder={countyInputPlaceholder} />
       {cityLoading && <SkeletonCityCard />}
       {cities &&
         cities.map((city) => (

@@ -8,6 +8,7 @@ import {
   setCountrySearchInput,
 } from '~/store/modules/application/actions';
 import { formatString } from '~/util';
+import { getLocale } from '~/locale';
 
 import { Container } from './styles';
 
@@ -17,6 +18,8 @@ const World = () => {
   const { world, loading, countrySearchInput } = useSelector(
     (state) => state.application
   );
+
+  const { countryInputPlaceholder } = getLocale();
 
   useEffect(() => {
     async function loadCountriesData() {
@@ -52,7 +55,7 @@ const World = () => {
         <SkeletonCountriesList />
       ) : (
         <>
-          <Input placeholder="Digite o nome de um país" debounceTimeout={600} />
+          <Input placeholder={countryInputPlaceholder} debounceTimeout={600} />
           <CountriesList pagedWorld={pagedWorld} />
           {!loading && pagedWorld.length !== world.length && (
             <Observer onChange={handleIntersection} threshold={1}>

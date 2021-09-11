@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { MdReorder } from 'react-icons/md';
 
 import { history } from '~/services';
+import { getLocale } from '~/locale';
+import logo from '~/assets/logo.svg';
 import Menu from '../Menu';
 
-import logo from '~/assets/logo.svg';
 import {
   Container,
   Left,
@@ -17,15 +18,17 @@ import {
 const Header = () => {
   const [menuVisibility, setMenuVisibility] = useState(false);
 
-  function handleMenuVisibility() {
+  const { appName, brazil, world, about } = getLocale();
+
+  const handleMenuVisibility = () => {
     setMenuVisibility(!menuVisibility);
-  }
+  };
 
   return (
     <Container>
       <Left />
       <Middle onClick={() => history.push('brasil')}>
-        <span>COVID-19 Tracker</span>
+        <span>{appName}</span>
         <img src={logo} alt="logo" />
       </Middle>
       <Button onClick={handleMenuVisibility}>
@@ -33,9 +36,9 @@ const Header = () => {
       </Button>
 
       <Right>
-        <NavLinkCustom to="/brasil">brasil</NavLinkCustom>
-        <NavLinkCustom to="/mundo">mundo</NavLinkCustom>
-        <NavLinkCustom to="/sobre">sobre</NavLinkCustom>
+        <NavLinkCustom to="/brasil">{brazil}</NavLinkCustom>
+        <NavLinkCustom to="/mundo">{world}</NavLinkCustom>
+        <NavLinkCustom to="/sobre">{about}</NavLinkCustom>
       </Right>
 
       <Menu

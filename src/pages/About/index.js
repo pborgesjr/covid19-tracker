@@ -1,31 +1,34 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react';
 
+import { getLocale } from '~/locale';
+
 import { Container, AboutContainer, Message, API, SourceCode } from './styles';
 
 const About = () => {
+  const {
+    Pages: {
+      About: { title, githubRepo, apiSource, healthSource },
+    },
+  } = getLocale();
+
   return (
     <Container>
       <AboutContainer>
-        <Message>Aplicação desenvolvida por Pedro Borges Jr.</Message>
+        <Message>{title}</Message>
 
         <SourceCode>
-          <a href="https://github.com/pedropjr/covid19-tracker">
-            ⚛️ Repositório Github
-          </a>
+          <a href="https://github.com/pedropjr/covid19-tracker">{githubRepo}</a>
         </SourceCode>
 
         <API>
           <a href="https://github.com/devarthurribeiro/covid19-brazil-api">
-            🚀 Fonte de dados Brasil e Mundo.
+            {apiSource}
           </a>
         </API>
 
         <API>
-          <a href="https://brasil.io/dataset/covid19/">
-            🚀 Secretarias de Saúde das Unidades Federativas, dados tratados por
-            Álvaro Justen e equipe de voluntários Brasil.IO
-          </a>
+          <a href="https://brasil.io/dataset/covid19/">{healthSource}</a>
         </API>
       </AboutContainer>
     </Container>

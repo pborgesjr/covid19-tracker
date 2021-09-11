@@ -5,6 +5,7 @@ import { FaCircle } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 
 import { formatDate } from '~/util';
+import { getLocale } from '~/locale';
 
 import {
   Container,
@@ -18,8 +19,17 @@ import {
 } from './styles';
 
 const CountryCard = ({ countryData, states_date }) => {
+  const {
+    deathCount,
+    recoveredCount,
+    activeCases,
+    totalCount,
+    updateAll,
+    updatePerState,
+  } = getLocale();
+
   const data = {
-    labels: ['mortes', 'recuperados', 'casos ativos'],
+    labels: [deathCount, recoveredCount, activeCases],
     datasets: [
       {
         data: [countryData.deaths, countryData.recovered, countryData.cases],
@@ -54,7 +64,7 @@ const CountryCard = ({ countryData, states_date }) => {
         <Legend>
           <Left>
             <FaCircle color="#FFE500" size={14} />
-            <span>casos ativos</span>
+            <span>{activeCases}</span>
           </Left>
           <span>{countryData.cases}</span>
         </Legend>
@@ -62,7 +72,7 @@ const CountryCard = ({ countryData, states_date }) => {
         <Legend>
           <Left>
             <FaCircle color="#4FFA7B" size={14} />
-            <span>recuperados</span>
+            <span>{recoveredCount}</span>
           </Left>
           <span>{countryData.recovered}</span>
         </Legend>
@@ -70,7 +80,7 @@ const CountryCard = ({ countryData, states_date }) => {
         <Legend>
           <Left>
             <FaCircle color="#BA8686" size={14} />
-            <span>mortes</span>
+            <span>{deathCount}</span>
           </Left>
           <span>{countryData.deaths}</span>
         </Legend>
@@ -78,16 +88,16 @@ const CountryCard = ({ countryData, states_date }) => {
         <Legend>
           <Left>
             <FaCircle color="#4d4d4d" size={14} />
-            <span>total</span>
+            <span>{totalCount}</span>
           </Left>
           <span>{countryData.confirmed}</span>
         </Legend>
       </CasesContainer>
       {countryData.country === 'Brazil' && states_date && (
         <BottomContainer>
-          <span>atualização por estado</span>
+          <span>{updatePerState}</span>
           <span>{states_date}</span>
-          <span>atualização geral</span>
+          <span>{updateAll}</span>
           <span>{formatDate(countryData.updated_at, true)}</span>
         </BottomContainer>
       )}

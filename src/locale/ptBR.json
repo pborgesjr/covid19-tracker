@@ -1,0 +1,31 @@
+{
+  "Pages": {
+    "About": {
+      "title": "Aplicação desenvolvida por Pedro Borges Jr.",
+      "githubRepo": "⚛️ Repositório Github",
+      "apiSource": "🚀 Fonte de dados Brasil e Mundo.",
+      "healthSource": "🚀 Secretarias de Saúde das Unidades Federativas, dados tratados por Álvaro Justen e equipe de voluntários Brasil.IO"
+    }
+  },
+  "countryInputPlaceholder": "Digite o nome de um país",
+  "federalUnit": "uf",
+  "casesCount": "casos",
+  "suspectsCount": "suspeitos",
+  "deathCount": "mortes",
+  "confirmedCases": "casos confirmados",
+  "state": "estado",
+  "lastUpdate": "última atualização",
+  "activeCases": "casos ativos",
+  "recoveredCount": "recuperados",
+  "totalCount": "total",
+  "updatePerState": "atualização por estado",
+  "updateAll": "atualização geral",
+  "counties": "municípios",
+  "countyInputPlaceholder": "Digite o nome de um município",
+  "protectYourself": "Se proteja",
+  "appName": "COVID-19 Tracker",
+  "brazil": "brasil",
+  "world": "mundo",
+  "about": "sobre",
+  "brazilCities": "cidades do brasil"
+}
