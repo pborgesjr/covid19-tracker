@@ -1,10 +1,10 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Observer from '@researchgate/react-intersection-observer';
 
 import { Input, CountriesList } from '~/components';
 import { getWorldInfo } from '~/services';
-import { formatString } from '~/utils';
 import { getLocale } from '~/locale';
+import { usePagedWorld } from '~/hooks';
 
 import { Container } from './styles';
 
@@ -22,17 +22,7 @@ const World = () => {
     }
   };
 
-  /** fazer custom hook */
-  const memoPagedWorld = useMemo(() => {
-    if (input !== '') {
-      setPage(1);
-      return world.filter((country) =>
-        country.country.includes(formatString(input))
-      );
-    }
-    const offset = (Number(page) - 1) * 16;
-    return world.slice(0, offset + 16);
-  }, [page, input, world]);
+  const memoPagedWorld = usePagedWorld(page, input, world, setPage);
 
   useEffect(() => {
     const loadWorld = async () => {
