@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
+import { PALETTE } from '~/theme';
+
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
-  background: #101010;
+  background: ${PALETTE.neutral.darkGrey};
   align-items: center;
   padding: 20px 25px;
   position: fixed;
@@ -38,7 +40,7 @@ export const Middle = styled.div`
   cursor: pointer;
 
   span {
-    color: #fff;
+    color: ${PALETTE.neutral.white};
     font-size: 4rem;
   }
   img {
@@ -83,10 +85,24 @@ export const Right = styled.div`
 `;
 export const NavLinkCustom = styled(NavLink).attrs(() => ({
   activeStyle: {
-    color: '#4FFA7B',
-    borderBottom: '1px solid #4FFA7B',
+    color: PALETTE.vividGreen,
+    borderBottom: `1px solid ${PALETTE.vividGreen}`,
     borderBottomWidth: '5px',
   },
 }))`
-  color: #fff;
+  color: ${PALETTE.neutral.white};
 `;
+
+export const LanguageButton = styled.button`
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  color: ${PALETTE.neutral.white};
+  font-size: 2rem;
+  margin-left: 5rem;
+`;
+
+export const iconStyle = {
+  marginRight: '1rem',
+};

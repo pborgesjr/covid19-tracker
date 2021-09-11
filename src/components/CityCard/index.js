@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { formatDate } from '~/util';
+import { formatDate } from '~/utils';
 import { getLocale } from '~/locale';
 
 import { Container, Top, Middle } from './styles';

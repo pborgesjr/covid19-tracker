@@ -3,7 +3,7 @@ import Observer from '@researchgate/react-intersection-observer';
 
 import { Input, CountriesList } from '~/components';
 import { getWorldInfo } from '~/services';
-import { formatString } from '~/util';
+import { formatString } from '~/utils';
 import { getLocale } from '~/locale';
 
 import { Container } from './styles';

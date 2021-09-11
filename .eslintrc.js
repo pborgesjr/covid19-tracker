@@ -30,7 +30,7 @@ module.exports = {
     'global-require': 'off',
     'react/prop-types': 0,
     //'quote-props': ['error', 'as-needed', { numbers: true }],
-    treatUndefinedAsUnspecified: true,
+    //treatUndefinedAsUnspecified: true,
     'react-native/no-raw-text': 'off',
     'no-param-reassign': 'off',
     'no-underscore-dangle': 'off',

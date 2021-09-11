@@ -2,7 +2,7 @@ import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { FaCircle } from 'react-icons/fa';
 
-import { formatDate } from '~/util';
+import { formatDate } from '~/utils';
 import { getLocale } from '~/locale';
 import { PALETTE } from '~/theme';
 

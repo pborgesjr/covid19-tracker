@@ -3,8 +3,7 @@
     "About": {
       "title": "Aplicação desenvolvida por Pedro Borges Jr.",
       "githubRepo": "⚛️ Repositório Github",
-      "apiSource": "🚀 Fonte de dados Brasil e Mundo.",
-      "healthSource": "🚀 Secretarias de Saúde das Unidades Federativas, dados tratados por Álvaro Justen e equipe de voluntários Brasil.IO"
+      "apiSource": "🚀 Fonte de dados Brasil e Mundo."
     }
   },
   "countryInputPlaceholder": "Digite o nome de um país",

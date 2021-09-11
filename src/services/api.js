@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 
 import { getLocale } from '~/locale';
-import { formatDate } from '~/util';
+import { formatDate } from '~/utils';
 import { BRASIL_IO_API_TOKEN } from '~/constants';
 
 import axiosConfig from './axiosConfig';
