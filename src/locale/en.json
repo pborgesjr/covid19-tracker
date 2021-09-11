@@ -19,7 +19,7 @@
   "totalCount": "total",
   "updatePerState": "update by state",
   "updateAll": "last update",
-  "counties": "counties",
+  "cities": "cities",
   "countyInputPlaceholder": "Search for a city",
   "protectYourself": "Protect yourself",
   "appName": "COVID-19 Tracker",

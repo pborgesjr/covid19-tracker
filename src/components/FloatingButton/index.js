@@ -7,12 +7,12 @@ import { PALETTE } from '~/theme';
 import { Container } from './styles';
 
 const FloatingButton = ({ setIsShowing }) => {
-  const { counties } = getLocale();
+  const { cities } = getLocale();
 
   return (
     <Container onClick={() => setIsShowing(true)}>
       <MdChevronLeft color={PALETTE.neutral.white} size={40} />
-      <span>{counties}</span>
+      <span>{cities}</span>
     </Container>
   );
 };
