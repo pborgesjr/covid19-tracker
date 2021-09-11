@@ -2,7 +2,7 @@ import { takeLatest, call, put, all } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 
 import { formatDate } from '~/util';
-import { api, secondaryApi } from '~/services';
+import { api } from '~/services';
 
 import {
   getCountryInfoSuccess,
@@ -15,7 +15,7 @@ export function* getCountry({ payload }) {
   try {
     const { name } = payload;
     /** API Call */
-    const response = yield call(api.get, `/api/report/v1/${name}`);
+    const response = yield call(api('world').get, `/api/report/v1/${name}`);
     /** */
 
     const country = {
@@ -30,7 +30,7 @@ export function* getCountry({ payload }) {
 
 export function* getWorld() {
   try {
-    const response = yield call(api.get, '/api/report/v1/countries');
+    const response = yield call(api('world').get, '/api/report/v1/countries');
     yield put(getWorldInfoSuccess(response.data.data));
   } catch (err) {
     toast.error('Falha ao recuperar informações sobre do mundo!');
@@ -40,7 +40,7 @@ export function* getWorld() {
 export function* getBrazil() {
   try {
     /** API Call */
-    const response = yield call(api.get, '/api/report/v1');
+    const response = yield call(api('world').get, '/api/report/v1');
     /** */
 
     yield put(
@@ -57,7 +57,7 @@ export function* getBrazil() {
 export function* getCity({ payload }) {
   try {
     const { citySearchInput } = payload;
-    const response = yield call(secondaryApi.get, '', {
+    const response = yield call(api('cities').get, '', {
       params: {
         search: citySearchInput,
         is_last: 'True',

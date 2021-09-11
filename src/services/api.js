@@ -1,5 +1,13 @@
 import axios from 'axios';
 
-export const api = axios.create({
-  baseURL: 'https://covid19-brazil-api.now.sh',
-});
+const URLs = {
+  world: 'https://covid19-brazil-api.now.sh',
+  cities: 'https://brasil.io/api/dataset/covid19/caso/data/?format=json',
+};
+
+const api = (key) =>
+  axios.create({
+    baseURL: URLs[key],
+  });
+
+export default api;

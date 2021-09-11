@@ -1,3 +1,2 @@
-export * from './api';
-export * from './secondaryApi';
+export { default as api } from './api';
 export * from './history';
