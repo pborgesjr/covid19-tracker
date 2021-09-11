@@ -1,6 +1,8 @@
 import styled, { keyframes, css } from 'styled-components';
 import { IoMdCloseCircle } from 'react-icons/io';
 
+import { PALETTE } from '~/theme';
+
 /** Move in animation */
 const moveIn = keyframes`
 from {
@@ -29,7 +31,7 @@ export const Container = styled.div`
   top: 0;
   right: -360px;
   z-index: 15;
-  background: #222;
+  background: ${PALETTE.neutral.grey222};
   height: 100%;
   width: 100%;
   max-width: 360px;
@@ -51,7 +53,7 @@ export const Container = styled.div`
 export const CustomCloseCircle = styled(IoMdCloseCircle)`
   height: 48px;
   width: 48px;
-  fill: #4ffa7b;
+  fill: ${PALETTE.vividGreen};
   margin: 25px 0 45px 220px;
   transition: transform 0.3s;
 

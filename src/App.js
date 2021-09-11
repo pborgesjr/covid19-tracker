@@ -9,7 +9,7 @@ import { history } from '~/services';
 import { store } from './store/index';
 import Routes from '~/routes/index';
 
-import GlobalStyle from '~/styles/global';
+import { GlobalStyle } from '~/theme';
 
 const App = () => {
   return (

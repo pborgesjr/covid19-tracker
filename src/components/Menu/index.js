@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 
 import { getLocale } from '~/locale';
+import { PALETTE } from '~/theme';
 
 import { Container, NavLinkCustom } from './styles';
 
@@ -27,7 +28,7 @@ const Menu = ({ handleMenuVisibility, isVisible }) => {
       <IoMdCloseCircleOutline
         onClick={handleMenuVisibility}
         size={60}
-        color="#fff"
+        color={PALETTE.neutral.white}
       />
     </Container>
   );

@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
+import { PALETTE } from '~/theme';
+
 export const Container = styled.div`
   display: ${(props) => (props.isVisible ? 'flex' : 'none')};
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.95);
+  background: ${PALETTE.opacity.black95};
   position: absolute;
   top: 0;
   left: 0;
@@ -27,10 +29,10 @@ export const Container = styled.div`
 
 export const NavLinkCustom = styled(NavLink).attrs(() => ({
   activeStyle: {
-    color: '#4FFA7B',
-    borderBottom: '1px solid #4FFA7B',
+    color: PALETTE.vividGreen,
+    borderBottom: `1px solid ${PALETTE.vividGreen}`,
     borderBottomWidth: '2px',
   },
 }))`
-  color: #fff;
+  color: ${PALETTE.neutral.white};
 `;

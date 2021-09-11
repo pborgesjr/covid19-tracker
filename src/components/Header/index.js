@@ -3,6 +3,7 @@ import { MdReorder } from 'react-icons/md';
 
 import { history } from '~/services';
 import { getLocale } from '~/locale';
+import { PALETTE } from '~/theme';
 import logo from '~/assets/logo.svg';
 import Menu from '../Menu';
 
@@ -32,7 +33,7 @@ const Header = () => {
         <img src={logo} alt="logo" />
       </Middle>
       <Button onClick={handleMenuVisibility}>
-        <MdReorder size={48} color="#fff" />
+        <MdReorder size={48} color={PALETTE.neutral.white} />
       </Button>
 
       <Right>

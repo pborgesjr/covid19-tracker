@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
+import { PALETTE } from '~/theme';
+
 export const Container = styled.div`
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(5, auto);
   grid-gap: 20px;
   padding: 50px;
-  color: #fff;
+  color: ${PALETTE.neutral.white};
   width: 100%;
 
   @media only screen and (max-width: 1920px) {

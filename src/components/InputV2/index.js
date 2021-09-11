@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { MdSearch } from 'react-icons/md';
 import PropTypes from 'prop-types';
 
+import { PALETTE } from '~/theme';
 import { getCityRequest } from '~/store/modules/application/actions';
 
 import { Container } from './styles';
@@ -32,7 +33,11 @@ const InputV2 = ({ placeholder }) => {
         }}
       />
 
-      <MdSearch size={30} color="#fff" onClick={handleSearch} />
+      <MdSearch
+        size={30}
+        color={PALETTE.neutral.white}
+        onClick={handleSearch}
+      />
     </Container>
   );
 };

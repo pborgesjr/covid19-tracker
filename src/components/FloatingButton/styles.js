@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { PALETTE } from '~/theme';
+
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
@@ -7,7 +9,7 @@ export const Container = styled.div`
   justify-content: center;
   padding-right: 15px;
   border-radius: 6px;
-  background: #4ffa7b;
+  background: ${PALETTE.vividGreen};
   position: absolute;
   bottom: -20px;
   right: 50px;
@@ -18,12 +20,12 @@ export const Container = styled.div`
     cursor: pointer;
 
     span {
-      color: #111;
+      color: ${PALETTE.neutral.darkerGrey};
       font-weight: bold;
     }
 
     svg {
-      fill: #111;
+      fill: ${PALETTE.neutral.darkerGrey};
     }
   }
 
@@ -33,6 +35,6 @@ export const Container = styled.div`
 
   span {
     font-size: 2rem;
-    color: #fff;
+    color: ${PALETTE.neutral.white};
   }
 `;

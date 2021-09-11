@@ -8,6 +8,7 @@ import {
   BrasilTable,
   CountryCard,
 } from '~/components';
+import { PALETTE } from '~/theme';
 import {
   getCountryInfoRequest,
   getBrazilInfoRequest,
@@ -33,7 +34,12 @@ const Brasil = () => {
   return (
     <Container loading={loading}>
       {loading ? (
-        <ReactLoading type="spokes" color="#4FFA7B" height="10%" width="10%" />
+        <ReactLoading
+          type="spokes"
+          color={PALETTE.vividGreen}
+          height="10%"
+          width="10%"
+        />
       ) : (
         <>
           <CountryCard countryData={country} states_date={states_date} />

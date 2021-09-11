@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 import { formatDate } from '~/util';
 import { getLocale } from '~/locale';
+import { PALETTE } from '~/theme';
 
 import {
   Container,
@@ -33,8 +34,16 @@ const CountryCard = ({ countryData, states_date }) => {
     datasets: [
       {
         data: [countryData.deaths, countryData.recovered, countryData.cases],
-        backgroundColor: ['#BA8686', '#4FFA7B', '#FFE500'],
-        hoverBackgroundColor: ['#8a6365', '#33a350', '#b09e00'],
+        backgroundColor: [
+          PALETTE.lightRed50,
+          PALETTE.vividGreen,
+          PALETTE.vividYellow,
+        ],
+        hoverBackgroundColor: [
+          PALETTE.lightRed60,
+          PALETTE.horrorGreen,
+          PALETTE.opaqueYellow,
+        ],
       },
     ],
   };
@@ -63,7 +72,7 @@ const CountryCard = ({ countryData, states_date }) => {
       <CasesContainer>
         <Legend>
           <Left>
-            <FaCircle color="#FFE500" size={14} />
+            <FaCircle color={PALETTE.vividYellow} size={14} />
             <span>{activeCases}</span>
           </Left>
           <span>{countryData.cases}</span>
@@ -71,7 +80,7 @@ const CountryCard = ({ countryData, states_date }) => {
 
         <Legend>
           <Left>
-            <FaCircle color="#4FFA7B" size={14} />
+            <FaCircle color={PALETTE.vividGreen} size={14} />
             <span>{recoveredCount}</span>
           </Left>
           <span>{countryData.recovered}</span>
@@ -79,7 +88,7 @@ const CountryCard = ({ countryData, states_date }) => {
 
         <Legend>
           <Left>
-            <FaCircle color="#BA8686" size={14} />
+            <FaCircle color={PALETTE.lightRed50} size={14} />
             <span>{deathCount}</span>
           </Left>
           <span>{countryData.deaths}</span>
@@ -87,7 +96,7 @@ const CountryCard = ({ countryData, states_date }) => {
 
         <Legend>
           <Left>
-            <FaCircle color="#4d4d4d" size={14} />
+            <FaCircle color={PALETTE.grey} size={14} />
             <span>{totalCount}</span>
           </Left>
           <span>{countryData.confirmed}</span>

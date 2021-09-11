@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
+import { PALETTE } from '~/theme';
+
 export const Container = styled.div`
   display: ${(props) => (props.loading ? 'none' : 'flex')};
   justify-content: center;
 
   span {
     font-size: 2.4rem;
-    color: #fff;
+    color: ${PALETTE.neutral.white};
     padding: 0 10px;
   }
 `;
@@ -19,7 +21,7 @@ export const InnerContainer = styled.div`
 `;
 
 export const PageButton = styled.button`
-  background: #4ffa7b;
+  background: ${PALETTE.vividGreen};
   border-radius: 4px;
   border: 0;
 `;

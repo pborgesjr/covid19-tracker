@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { PALETTE } from '~/theme';
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -8,7 +10,7 @@ export const Container = styled.div`
 
   span {
     font-size: 18px;
-    color: #fff;
+    color: ${PALETTE.neutral.white};
   }
 
   @media only screen and (max-height: 1100px) {

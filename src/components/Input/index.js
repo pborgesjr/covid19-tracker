@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { MdSearch } from 'react-icons/md';
 import { DebounceInput } from 'react-debounce-input';
 
+import { PALETTE } from '~/theme';
 import {
   setCitySearchInput,
   setCountrySearchInput,
@@ -31,7 +32,7 @@ const Input = ({ placeholder, debounceTimeout }) => {
         onChange={handleSearchInput}
       />
 
-      <MdSearch size={30} color="#fff" />
+      <MdSearch size={30} color={PALETTE.neutral.white} />
     </Container>
   );
 };
