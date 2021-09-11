@@ -1,12 +1,8 @@
-import React, { useEffect, useState, useMemo } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useMemo, useEffect } from 'react';
 import Observer from '@researchgate/react-intersection-observer';
 
-import { SkeletonCountriesList, Input, CountriesList } from '~/components';
-import {
-  getWorldInfoRequest,
-  setCountrySearchInput,
-} from '~/store/modules/application/actions';
+import { Input, CountriesList } from '~/components';
+import { getWorldInfo } from '~/services';
 import { formatString } from '~/util';
 import { getLocale } from '~/locale';
 
@@ -14,55 +10,52 @@ import { Container } from './styles';
 
 const World = () => {
   const [page, setPage] = useState(1);
-  const dispatch = useDispatch();
-  const { world, loading, countrySearchInput } = useSelector(
-    (state) => state.application
-  );
+  const [world, setWorld] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [input, setInput] = useState('');
 
   const { countryInputPlaceholder } = getLocale();
 
-  useEffect(() => {
-    async function loadCountriesData() {
-      await dispatch(getWorldInfoRequest());
+  const handleIntersection = ({ isIntersecting }) => {
+    if (isIntersecting) {
+      setTimeout(() => setPage(page + 1), 1000);
     }
-    loadCountriesData();
+  };
 
-    return () => {
-      dispatch(setCountrySearchInput(''));
-    };
-  }, [dispatch]);
-
-  const pagedWorld = useMemo(() => {
-    if (countrySearchInput !== '') {
+  /** fazer custom hook */
+  const memoPagedWorld = useMemo(() => {
+    if (input !== '') {
       setPage(1);
       return world.filter((country) =>
-        country.country.includes(formatString(countrySearchInput))
+        country.country.includes(formatString(input))
       );
     }
     const offset = (Number(page) - 1) * 16;
     return world.slice(0, offset + 16);
-  }, [page, countrySearchInput, world]);
+  }, [page, input, world]);
 
-  function handleIntersection({ isIntersecting }) {
-    if (isIntersecting) {
-      setTimeout(() => setPage(page + 1), 1000);
-    }
-  }
+  useEffect(() => {
+    const loadWorld = async () => {
+      setWorld(await getWorldInfo());
+      setIsLoading(false);
+    };
+
+    loadWorld();
+  }, []);
 
   return (
     <Container>
-      {loading ? (
-        <SkeletonCountriesList />
-      ) : (
-        <>
-          <Input placeholder={countryInputPlaceholder} debounceTimeout={600} />
-          <CountriesList pagedWorld={pagedWorld} />
-          {!loading && pagedWorld.length !== world.length && (
-            <Observer onChange={handleIntersection} threshold={1}>
-              <span />
-            </Observer>
-          )}
-        </>
+      <Input
+        placeholder={countryInputPlaceholder}
+        debounceTimeout={600}
+        isLoading={isLoading}
+        setValue={setInput}
+      />
+      <CountriesList pagedWorld={memoPagedWorld} isLoading={isLoading} />
+      {!isLoading && memoPagedWorld.length !== world.length && (
+        <Observer onChange={handleIntersection} threshold={1}>
+          <span />
+        </Observer>
       )}
     </Container>
   );

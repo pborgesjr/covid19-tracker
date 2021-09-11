@@ -1,7 +1,6 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { FaCircle } from 'react-icons/fa';
-import PropTypes from 'prop-types';
 
 import { formatDate } from '~/util';
 import { getLocale } from '~/locale';
@@ -80,14 +79,6 @@ const CountryCard = ({ countryData, states_date }) => {
       )}
     </Container>
   );
-};
-
-CountryCard.propTypes = {
-  states_date: PropTypes.string,
-};
-
-CountryCard.defaultProps = {
-  states_date: null,
 };
 
 export default CountryCard;

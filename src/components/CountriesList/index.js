@@ -1,22 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import CountryCard from '../CountryCard';
+import { SkeletonCountriesList } from '../Skeleton';
 
 import { Container } from './styles';
 
-const CountriesList = ({ pagedWorld }) => {
-  return (
+const CountriesList = ({ pagedWorld, isLoading }) => {
+  return isLoading ? (
+    <SkeletonCountriesList />
+  ) : (
     <Container>
       {pagedWorld.map((country) => (
         <CountryCard key={country.country} countryData={country} />
       ))}
     </Container>
   );
-};
-
-CountriesList.propTypes = {
-  pagedWorld: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default CountriesList;

@@ -1,13 +1,10 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
 import { getLocale } from '~/locale';
 
 import { Container } from './styles';
 
-export const BrasilTable = () => {
-  const { brazil } = useSelector((state) => state.application);
-
+export const BrasilTable = ({ states }) => {
   const { federalUnit, casesCount, suspectsCount, deathCount } = getLocale();
 
   return (
@@ -22,7 +19,7 @@ export const BrasilTable = () => {
           </tr>
         </thead>
         <tbody>
-          {brazil.map((item) => (
+          {states.map((item) => (
             <tr key={item.uid}>
               <td>{item.state.toLowerCase()}</td>
               <td>{item.cases.toLocaleString()}</td>

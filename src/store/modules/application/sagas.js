@@ -2,7 +2,7 @@ import { takeLatest, call, put, all } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 
 import { formatDate } from '~/util';
-import { api } from '~/services';
+import { axiosConfig as api } from '~/services';
 
 import {
   getCountryInfoSuccess,
@@ -62,6 +62,9 @@ export function* getCity({ payload }) {
         search: citySearchInput,
         is_last: 'True',
         place_type: 'city',
+      },
+      headers: {
+        Authorization: `Token 7a1e12d7244b83a26e89e65338f66bb67efcd7b3`,
       },
     });
 

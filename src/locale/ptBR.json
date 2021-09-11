@@ -27,5 +27,10 @@
   "brazil": "brasil",
   "world": "mundo",
   "about": "sobre",
-  "brazilCities": "cidades do brasil"
+  "brazilCities": "cidades do brasil",
+  "errorFetchingWorldData": "Falha ao recuperar informações sobre do mundo!",
+  "errorFetchingCountryData": "Falha ao recuperar informações do país!",
+  "errorFetchingBrazilData": "Falha ao recuperar informações do Brasil!",
+  "errorFetchingCityData": "Erro ao buscar cidade, tente novamente em alguns instantes!",
+  "pleaseTypeACity": "Por favor, digite o nome correto do município!"
 }

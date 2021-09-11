@@ -1,18 +1,20 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import { getLocale } from '~/locale';
-import InputV2 from '../InputV2';
+import Input from '../Input';
 import CityCard from '../CityCard';
 import SkeletonCityCard from '../Skeleton/CityCard';
 
 import { Container, CustomCloseCircle } from './styles';
 
-const FloatingCities = ({ isShowing, setIsShowing }) => {
+const FloatingCities = ({
+  isShowing,
+  setIsShowing,
+  setValue,
+  isLoading,
+  cities,
+}) => {
   const { countyInputPlaceholder } = getLocale();
-
-  const { cities, cityLoading } = useSelector((state) => state.application);
 
   return (
     <Container isShowing={isShowing}>
@@ -20,9 +22,14 @@ const FloatingCities = ({ isShowing, setIsShowing }) => {
         <CustomCloseCircle onClick={() => setIsShowing(false)} />
       </div>
 
-      <InputV2 placeholder={countyInputPlaceholder} />
-      {cityLoading && <SkeletonCityCard />}
-      {cities &&
+      <Input
+        placeholder={countyInputPlaceholder}
+        debounceTimeout={1000}
+        setValue={setValue}
+      />
+      {isLoading && <SkeletonCityCard />}
+      {!isLoading &&
+        cities &&
         cities.map((city) => (
           <CityCard key={city.city_ibge_code} city={city} />
         ))}
@@ -31,13 +38,3 @@ const FloatingCities = ({ isShowing, setIsShowing }) => {
 };
 
 export default FloatingCities;
-
-/** Prop Types */
-FloatingCities.propTypes = {
-  isShowing: PropTypes.bool,
-  setIsShowing: PropTypes.func.isRequired,
-};
-
-FloatingCities.defaultProps = {
-  isShowing: undefined,
-};
