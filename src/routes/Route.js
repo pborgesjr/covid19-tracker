@@ -1,10 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Route } from 'react-router-dom';
-import DefaultLayout from '~/pages/_layouts/default/index';
+
+import { DefaultLayout } from '~/pages';
 
 // eslint-disable-next-line react/prop-types
-export default function RouteWrapper({ component: Component, ...rest }) {
+const RouteWrapper = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
@@ -15,4 +16,6 @@ export default function RouteWrapper({ component: Component, ...rest }) {
       )}
     />
   );
-}
+};
+
+export default RouteWrapper;

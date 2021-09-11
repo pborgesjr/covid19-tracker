@@ -1,10 +1,10 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { FaCircle } from 'react-icons/fa';
-import PropTypes from 'prop-types';
 
-import formatDate from '~/util/formatDate';
+import { formatDate } from '~/utils';
+import { getLocale } from '~/locale';
+import { PALETTE } from '~/theme';
 
 import {
   Container,
@@ -17,14 +17,16 @@ import {
   BottomContainer,
 } from './styles';
 
-export default function CountryCard({ countryData, states_date }) {
+const CountryCard = ({ countryData, states_date }) => {
+  const { deathCount, totalCount, updateAll, updatePerState } = getLocale();
+
   const data = {
-    labels: ['mortes', 'recuperados', 'casos ativos'],
+    labels: [deathCount, totalCount],
     datasets: [
       {
-        data: [countryData.deaths, countryData.recovered, countryData.cases],
-        backgroundColor: ['#BA8686', '#4FFA7B', '#FFE500'],
-        hoverBackgroundColor: ['#8a6365', '#33a350', '#b09e00'],
+        data: [countryData.deaths, countryData.confirmed],
+        backgroundColor: [PALETTE.lightRed50, PALETTE.vividYellow],
+        hoverBackgroundColor: [PALETTE.lightRed60, PALETTE.opaqueYellow],
       },
     ],
   };
@@ -53,52 +55,30 @@ export default function CountryCard({ countryData, states_date }) {
       <CasesContainer>
         <Legend>
           <Left>
-            <FaCircle color="#FFE500" size={14} />
-            <span>casos ativos</span>
-          </Left>
-          <span>{countryData.cases}</span>
-        </Legend>
-
-        <Legend>
-          <Left>
-            <FaCircle color="#4FFA7B" size={14} />
-            <span>recuperados</span>
-          </Left>
-          <span>{countryData.recovered}</span>
-        </Legend>
-
-        <Legend>
-          <Left>
-            <FaCircle color="#BA8686" size={14} />
-            <span>mortes</span>
+            <FaCircle color={PALETTE.lightRed50} size={14} />
+            <span>{deathCount}</span>
           </Left>
           <span>{countryData.deaths}</span>
         </Legend>
 
         <Legend>
           <Left>
-            <FaCircle color="#4d4d4d" size={14} />
-            <span>total</span>
+            <FaCircle color={PALETTE.vividYellow} size={14} />
+            <span>{totalCount}</span>
           </Left>
           <span>{countryData.confirmed}</span>
         </Legend>
       </CasesContainer>
       {countryData.country === 'Brazil' && states_date && (
         <BottomContainer>
-          <span>atualização por estado</span>
+          <span>{updatePerState}</span>
           <span>{states_date}</span>
-          <span>atualização geral</span>
+          <span>{updateAll}</span>
           <span>{formatDate(countryData.updated_at, true)}</span>
         </BottomContainer>
       )}
     </Container>
   );
-}
-
-CountryCard.propTypes = {
-  states_date: PropTypes.string,
 };
 
-CountryCard.defaultProps = {
-  states_date: null,
-};
+export default CountryCard;

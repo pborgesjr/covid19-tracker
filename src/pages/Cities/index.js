@@ -1,25 +1,47 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 
-import InputV2 from '~/components/InputV2';
+import { Input, CityCard, SkeletonCityCard } from '~/components';
+import { getLocale } from '~/locale';
+import { getCityInfo } from '~/services';
 
 import { Container } from './styles';
-import CityCard from '~/components/CityCard';
-import SkeletonCityCard from '~/components/Skeleton/CityCard';
 
-function Cities() {
-  const { cities, cityLoading } = useSelector((state) => state.application);
+const Cities = () => {
+  const [cities, setCities] = useState([]);
+  const [input, setInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const { countyInputPlaceholder } = getLocale();
+
+  useEffect(() => {
+    const loadCities = async () => {
+      setIsLoading(true);
+      setCities(await getCityInfo(input));
+      setIsLoading(false);
+    };
+    if (input === '') {
+      setCities([]);
+    } else {
+      loadCities();
+    }
+  }, [input]);
 
   return (
     <Container>
-      <InputV2 placeholder="Digite o nome de um município" />
-      {cityLoading && <SkeletonCityCard />}
-      {cities &&
+      <Input
+        placeholder={countyInputPlaceholder}
+        setValue={setInput}
+        isLoading={isLoading}
+        debounceTimeout={1000}
+      />
+      {isLoading && <SkeletonCityCard />}
+      {!isLoading &&
+        cities &&
         cities.map((city) => (
           <CityCard key={city.city_ibge_code} city={city} />
         ))}
     </Container>
   );
-}
+};
 
 export default Cities;

@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
+import { PALETTE } from '~/theme';
+
 export const Container = styled.div`
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  background: #4ffa7b;
+  background: ${PALETTE.vividGreen};
   border-radius: 4px;
   height: 50px;
   padding: 0 5px;
@@ -14,14 +16,14 @@ export const Container = styled.div`
 
   input {
     border: none;
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid ${PALETTE.neutral.white};
     background: none;
-    color: #fff;
+    color: ${PALETTE.neutral.white};
     width: 100%;
     height: 43px;
 
     ::placeholder {
-      color: #fff;
+      color: ${PALETTE.neutral.white};
       font-style: italic;
     }
     font-size: 18px;

@@ -4,7 +4,7 @@ import SkeletonCountryCard from '~/components/Skeleton/CountryCard';
 
 import { Container } from './styles';
 
-export default function SkeletonCountriesList() {
+const SkeletonCountriesList = () => {
   return (
     <Container>
       <SkeletonCountryCard />
@@ -13,4 +13,6 @@ export default function SkeletonCountriesList() {
       <SkeletonCountryCard />
     </Container>
   );
-}
+};
+
+export default SkeletonCountriesList;

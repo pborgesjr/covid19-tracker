@@ -1,0 +1,35 @@
+{
+  "Pages": {
+    "About": {
+      "title": "Aplicação desenvolvida por Pedro Borges Jr.",
+      "githubRepo": "⚛️ Repositório Github",
+      "apiSource": "🚀 Fonte de dados Brasil e Mundo."
+    }
+  },
+  "countryInputPlaceholder": "Digite o nome de um país",
+  "federalUnit": "uf",
+  "casesCount": "casos",
+  "suspectsCount": "suspeitos",
+  "deathCount": "mortes",
+  "confirmedCases": "casos confirmados",
+  "state": "estado",
+  "lastUpdate": "última atualização",
+  "activeCases": "casos ativos",
+  "recoveredCount": "recuperados",
+  "totalCount": "total",
+  "updatePerState": "atualização por estado",
+  "updateAll": "atualização geral",
+  "cities": "municípios",
+  "countyInputPlaceholder": "Digite o nome de um município",
+  "protectYourself": "Se proteja",
+  "appName": "COVID-19 Tracker",
+  "brazil": "brasil",
+  "world": "mundo",
+  "about": "sobre",
+  "brazilCities": "cidades do brasil",
+  "errorFetchingWorldData": "Falha ao recuperar informações sobre do mundo!",
+  "errorFetchingCountryData": "Falha ao recuperar informações do país!",
+  "errorFetchingBrazilData": "Falha ao recuperar informações do Brasil!",
+  "errorFetchingCityData": "Erro ao buscar cidade, tente novamente em alguns instantes!",
+  "pleaseTypeACity": "Por favor, digite o nome correto do município!"
+}

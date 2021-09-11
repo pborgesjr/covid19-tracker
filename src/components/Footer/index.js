@@ -1,11 +1,17 @@
 import React from 'react';
 
+import { getLocale } from '~/locale';
+
 import { Container } from './styles';
 
-export default function Footer() {
+const Footer = () => {
+  const { protectYourself } = getLocale();
+
   return (
     <Container>
-      <span>Se proteja.</span>
+      <span>{protectYourself}</span>
     </Container>
   );
-}
+};
+
+export default Footer;

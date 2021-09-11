@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
+import { PALETTE } from '~/theme';
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #4d4d4d;
+  background: ${PALETTE.neutral.grey};
   border-radius: 4px;
   padding: 15px 10px;
   width: 100%;

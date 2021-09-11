@@ -3,7 +3,7 @@ import { Skeleton } from '@material-ui/lab';
 
 import { Container } from './styles';
 
-function SkeletonCountryCard() {
+const SkeletonCountryCard = () => {
   return (
     <Container>
       <Skeleton variant="circle" />
@@ -11,6 +11,6 @@ function SkeletonCountryCard() {
       <Skeleton variant="rect" width={200} height={100} />
     </Container>
   );
-}
+};
 
 export default SkeletonCountryCard;

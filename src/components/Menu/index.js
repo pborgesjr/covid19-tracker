@@ -2,32 +2,37 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 
+import { getLocale } from '~/locale';
+import { PALETTE } from '~/theme';
+
 import { Container, NavLinkCustom } from './styles';
 
-export default function Menu({ handleMenuVisibility, isVisible }) {
+const Menu = ({ handleMenuVisibility, isVisible }) => {
+  const { brazil, world, about, brazilCities } = getLocale();
+
   return (
     <Container isVisible={isVisible}>
       <NavLinkCustom to="/brasil" onClick={handleMenuVisibility}>
-        brasil
+        {brazil}
       </NavLinkCustom>
       <NavLinkCustom to="/cidades" onClick={handleMenuVisibility}>
-        cidades do brasil
+        {brazilCities}
       </NavLinkCustom>
       <NavLinkCustom to="/mundo" onClick={handleMenuVisibility}>
-        mundo
+        {world}
       </NavLinkCustom>
       <NavLinkCustom to="/sobre" onClick={handleMenuVisibility}>
-        sobre
+        {about}
       </NavLinkCustom>
 
       <IoMdCloseCircleOutline
         onClick={handleMenuVisibility}
         size={60}
-        color="#fff"
+        color={PALETTE.neutral.white}
       />
     </Container>
   );
-}
+};
 
 Menu.propTypes = {
   handleMenuVisibility: PropTypes.func.isRequired,
@@ -37,3 +42,5 @@ Menu.propTypes = {
 Menu.defaultProps = {
   isVisible: false,
 };
+
+export default Menu;

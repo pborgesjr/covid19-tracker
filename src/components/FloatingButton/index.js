@@ -1,16 +1,20 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { MdChevronLeft } from 'react-icons/md';
 
+import { getLocale } from '~/locale';
+import { PALETTE } from '~/theme';
+
 import { Container } from './styles';
 
-function FloatingButton({ setIsShowing }) {
+const FloatingButton = ({ setIsShowing }) => {
+  const { cities } = getLocale();
+
   return (
     <Container onClick={() => setIsShowing(true)}>
-      <MdChevronLeft color="#fff" size={40} />
-      <span>munícipios</span>
+      <MdChevronLeft color={PALETTE.neutral.white} size={40} />
+      <span>{cities}</span>
     </Container>
   );
-}
+};
 
 export default FloatingButton;

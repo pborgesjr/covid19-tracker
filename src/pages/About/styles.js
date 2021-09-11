@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { PALETTE } from '~/theme';
+
 export const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -8,7 +10,7 @@ export const Container = styled.div`
 
   a {
     text-decoration-style: none;
-    color: #4ffa7b;
+    color: ${PALETTE.vividGreen};
     text-align: justify;
   }
 
@@ -21,7 +23,7 @@ export const AboutContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  background: #4d4d4d;
+  background: ${PALETTE.neutral.grey};
   border-radius: 4px;
   height: 400px;
   width: 100%;
@@ -31,7 +33,7 @@ export const AboutContainer = styled.div`
 
 export const Message = styled.span`
   text-align: justify;
-  color: #fff;
+  color: ${PALETTE.neutral.white};
 `;
 
 export const API = styled.div`

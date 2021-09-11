@@ -1,13 +1,13 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 
-import formatDate from '~/util/formatDate';
-
-// import sp from '~/assets/SP.png';
+import { formatDate } from '~/utils';
+import { getLocale } from '~/locale';
 
 import { Container, Top, Middle } from './styles';
 
-function CityCard({ city }) {
+const CityCard = ({ city }) => {
+  const { confirmedCases, state, lastUpdate, deathCount } = getLocale();
+
   return (
     <Container>
       <Top>
@@ -15,24 +15,24 @@ function CityCard({ city }) {
       </Top>
       <Middle>
         <div>
-          <span>casos confirmados</span>
+          <span>{confirmedCases}</span>
           <span>{city.confirmed}</span>
         </div>
         <div>
-          <span>mortes</span>
+          <span>{deathCount}</span>
           <span>{city.deaths}</span>
         </div>
         <div>
-          <span>estado</span>
+          <span>{state}</span>
           <span>{city.state}</span>
         </div>
         <div>
-          <span>última atualização</span>
+          <span>{lastUpdate}</span>
           <span>{formatDate(city.date)}</span>
         </div>
       </Middle>
     </Container>
   );
-}
+};
 
 export default CityCard;

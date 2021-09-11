@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
+import { PALETTE } from '~/theme';
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  background: #4d4d4d;
+  background: ${PALETTE.neutral.grey};
   border-radius: 4px;
   padding: 15px 20px;
 
-  color: #fff;
+  color: ${PALETTE.neutral.white};
   font-size: 2.5rem;
 
   @media only screen and (max-width: 800px) {
@@ -98,10 +100,10 @@ export const BottomContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-top: 1px solid #fff;
+  border-top: 1px solid ${PALETTE.neutral.white};
   padding: 20px 0;
 
-  color: #fff;
+  color: ${PALETTE.neutral.white};
 
   a {
     text-decoration: underline;

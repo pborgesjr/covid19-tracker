@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { PALETTE } from '~/theme';
+
 export const Container = styled.div`
   display: block;
   width: 100%;
@@ -16,15 +18,15 @@ export const Container = styled.div`
     }
     /* Track */
     ::-webkit-scrollbar-track {
-      background: #101010;
+      background: ${PALETTE.neutral.darkGrey};
     }
     /* Handle */
     ::-webkit-scrollbar-thumb {
-      background: #4d4d4d;
+      background: ${PALETTE.neutral.grey};
     }
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
-      background: #555;
+      background: ${PALETTE.neutral.lightGrey};
     }
   }
 
@@ -43,8 +45,8 @@ export const Container = styled.div`
       }
 
       th {
-        background: #4d4d4d;
-        color: #fff;
+        background: ${PALETTE.neutral.grey};
+        color: ${PALETTE.neutral.white};
         font-weight: normal;
         text-align: left;
         font-size: 20px;
@@ -64,13 +66,13 @@ export const Container = styled.div`
 
     tbody {
       td {
-        color: #fff;
+        color: ${PALETTE.neutral.white};
         font-size: 20px;
         padding-left: 10px;
       }
 
       tr:nth-child(even) {
-        background: rgba(175, 175, 175, 0.05);
+        background: ${PALETTE.opacity.grey005};
       }
     }
   }

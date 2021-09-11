@@ -1,0 +1,35 @@
+{
+  "Pages": {
+    "About": {
+      "title": "Application developed by Pedro Borges Jr.",
+      "githubRepo": "⚛️ Github Repo",
+      "apiSource": "API Github Repo"
+    }
+  },
+  "countryInputPlaceholder": "Search for a country",
+  "federalUnit": "federal unit",
+  "casesCount": "cases",
+  "suspectsCount": "suspects",
+  "deathCount": "deaths",
+  "confirmedCases": "confirmed cases",
+  "state": "state",
+  "lastUpdate": "last update",
+  "activeCases": "active cases",
+  "recoveredCount": "recovered",
+  "totalCount": "total",
+  "updatePerState": "update by state",
+  "updateAll": "last update",
+  "cities": "cities",
+  "countyInputPlaceholder": "Search for a city",
+  "protectYourself": "Protect yourself",
+  "appName": "COVID-19 Tracker",
+  "brazil": "brazil",
+  "world": "world",
+  "about": "about",
+  "brazilCities": "brazil's cities",
+  "errorFetchingWorldData": "Failed to recover data about the world cases!",
+  "errorFetchingCountryData": "Failed to recover data about this country!",
+  "errorFetchingBrazilData": "Failed to recover data from Brazil!",
+  "errorFetchingCityData": "Failed do search cities, please try again later!",
+  "pleaseTypeACity": "Please search for a valid city!"
+}
