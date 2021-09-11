@@ -2,17 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ReactLoading from 'react-loading';
 
-import { Container } from './styles';
-import FloatingButton from '~/components/FloatingButton';
-import FloatingCities from '~/components/FloatingCities';
-import BrasilTable from '~/components/BrasilTable';
-import CountryCard from '~/components/CountryCard';
+import {
+  FloatingButton,
+  FloatingCities,
+  BrasilTable,
+  CountryCard,
+} from '~/components';
 import {
   getCountryInfoRequest,
   getBrazilInfoRequest,
 } from '~/store/modules/application/actions';
 
-export default function Brasil() {
+import { Container } from './styles';
+
+const Brasil = () => {
   const [isShowing, setIsShowing] = useState();
   const dispatch = useDispatch();
   const { loading, country, states_date } = useSelector(
@@ -41,4 +44,6 @@ export default function Brasil() {
       )}
     </Container>
   );
-}
+};
+
+export default Brasil;

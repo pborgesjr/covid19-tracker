@@ -7,7 +7,7 @@ import { getCityRequest } from '~/store/modules/application/actions';
 
 import { Container } from './styles';
 
-function InputV2({ placeholder }) {
+const InputV2 = ({ placeholder }) => {
   const [searchInput, setSearchInput] = useState('');
   const dispatch = useDispatch();
 
@@ -35,7 +35,7 @@ function InputV2({ placeholder }) {
       <MdSearch size={30} color="#fff" onClick={handleSearch} />
     </Container>
   );
-}
+};
 
 export default InputV2;
 

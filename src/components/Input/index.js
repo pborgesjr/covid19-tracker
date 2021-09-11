@@ -11,7 +11,7 @@ import {
 
 import { Container } from './styles';
 
-function Input({ placeholder, debounceTimeout }) {
+const Input = ({ placeholder, debounceTimeout }) => {
   const dispatch = useDispatch();
 
   function handleSearchInput(event) {
@@ -34,6 +34,6 @@ function Input({ placeholder, debounceTimeout }) {
       <MdSearch size={30} color="#fff" />
     </Container>
   );
-}
+};
 
 export default Input;

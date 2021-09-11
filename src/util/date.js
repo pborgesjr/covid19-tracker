@@ -1,7 +1,7 @@
 import { format, parseISO } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 
-export default function formatDate(unformatedDate, withHour = false) {
+const formatDate = (unformatedDate, withHour = false) => {
   if (withHour) {
     return format(parseISO(unformatedDate), 'dd/MM/yyyy HH:mm', {
       locale: ptBR,
@@ -10,4 +10,6 @@ export default function formatDate(unformatedDate, withHour = false) {
   return format(parseISO(unformatedDate), 'dd/MM/yyyy', {
     locale: ptBR,
   });
-}
+};
+
+export { formatDate };

@@ -4,7 +4,7 @@ import { Doughnut } from 'react-chartjs-2';
 import { FaCircle } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 
-import formatDate from '~/util/formatDate';
+import { formatDate } from '~/util';
 
 import {
   Container,
@@ -17,7 +17,7 @@ import {
   BottomContainer,
 } from './styles';
 
-export default function CountryCard({ countryData, states_date }) {
+const CountryCard = ({ countryData, states_date }) => {
   const data = {
     labels: ['mortes', 'recuperados', 'casos ativos'],
     datasets: [
@@ -93,7 +93,7 @@ export default function CountryCard({ countryData, states_date }) {
       )}
     </Container>
   );
-}
+};
 
 CountryCard.propTypes = {
   states_date: PropTypes.string,
@@ -102,3 +102,5 @@ CountryCard.propTypes = {
 CountryCard.defaultProps = {
   states_date: null,
 };
+
+export default CountryCard;

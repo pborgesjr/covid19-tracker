@@ -5,7 +5,7 @@ import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
 import { Container, InnerContainer, PageButton } from './styles';
 
-export default function PageContainer({ setPage, page, length, loading }) {
+const PageContainer = ({ setPage, page, length, loading }) => {
   return (
     <Container length={length} loading={loading}>
       {!loading && (
@@ -21,7 +21,7 @@ export default function PageContainer({ setPage, page, length, loading }) {
       )}
     </Container>
   );
-}
+};
 
 PageContainer.propTypes = {
   setPage: PropTypes.func.isRequired,
@@ -29,3 +29,5 @@ PageContainer.propTypes = {
   length: PropTypes.number.isRequired,
   loading: PropTypes.number.isRequired,
 };
+
+export default PageContainer;

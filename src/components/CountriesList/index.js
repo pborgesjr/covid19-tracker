@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import CountryCard from '~/components/CountryCard';
+import CountryCard from '../CountryCard';
 
 import { Container } from './styles';
 
-export default function CountriesList({ pagedWorld }) {
+const CountriesList = ({ pagedWorld }) => {
   return (
     <Container>
       {pagedWorld.map((country) => (
@@ -13,8 +13,10 @@ export default function CountriesList({ pagedWorld }) {
       ))}
     </Container>
   );
-}
+};
 
 CountriesList.propTypes = {
   pagedWorld: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
+
+export default CountriesList;

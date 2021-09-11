@@ -4,7 +4,7 @@ import { IoMdCloseCircleOutline } from 'react-icons/io';
 
 import { Container, NavLinkCustom } from './styles';
 
-export default function Menu({ handleMenuVisibility, isVisible }) {
+const Menu = ({ handleMenuVisibility, isVisible }) => {
   return (
     <Container isVisible={isVisible}>
       <NavLinkCustom to="/brasil" onClick={handleMenuVisibility}>
@@ -27,7 +27,7 @@ export default function Menu({ handleMenuVisibility, isVisible }) {
       />
     </Container>
   );
-}
+};
 
 Menu.propTypes = {
   handleMenuVisibility: PropTypes.func.isRequired,
@@ -37,3 +37,5 @@ Menu.propTypes = {
 Menu.defaultProps = {
   isVisible: false,
 };
+
+export default Menu;

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { MdReorder } from 'react-icons/md';
 
-import history from '~/services/history';
-import Menu from '~/components/Menu';
+import { history } from '~/services';
+import Menu from '../Menu';
 
 import logo from '~/assets/logo.svg';
 import {
@@ -14,7 +14,7 @@ import {
   NavLinkCustom,
 } from './styles';
 
-function Header() {
+const Header = () => {
   const [menuVisibility, setMenuVisibility] = useState(false);
 
   function handleMenuVisibility() {
@@ -44,6 +44,6 @@ function Header() {
       />
     </Container>
   );
-}
+};
 
 export default Header;

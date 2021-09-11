@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { Container } from './styles';
 
-export default function BrasilTable() {
+export const BrasilTable = () => {
   const { brazil } = useSelector((state) => state.application);
 
   return (
@@ -30,4 +30,6 @@ export default function BrasilTable() {
       </table>
     </Container>
   );
-}
+};
+
+export default BrasilTable;

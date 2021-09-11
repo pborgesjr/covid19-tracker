@@ -2,13 +2,13 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import InputV2 from '~/components/InputV2';
-import CityCard from '~/components/CityCard';
-import SkeletonCityCard from '~/components/Skeleton/CityCard';
+import InputV2 from '../InputV2';
+import CityCard from '../CityCard';
+import SkeletonCityCard from '../Skeleton/CityCard';
 
 import { Container, CustomCloseCircle } from './styles';
 
-function FloatingCities({ isShowing, setIsShowing }) {
+const FloatingCities = ({ isShowing, setIsShowing }) => {
   const { cities, cityLoading } = useSelector((state) => state.application);
 
   return (
@@ -25,7 +25,7 @@ function FloatingCities({ isShowing, setIsShowing }) {
         ))}
     </Container>
   );
-}
+};
 
 export default FloatingCities;
 

@@ -1,9 +1,8 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 
-import formatDate from '~/util/formatDate';
-import api from '~/services/api';
-import secondaryApi from '~/services/secondaryApi';
+import { formatDate } from '~/util';
+import { api, secondaryApi } from '~/services';
 
 import {
   getCountryInfoSuccess,

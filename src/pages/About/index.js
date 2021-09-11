@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Container, AboutContainer, Message, API, SourceCode } from './styles';
 
-function About() {
+const About = () => {
   return (
     <Container>
       <AboutContainer>
@@ -30,6 +30,6 @@ function About() {
       </AboutContainer>
     </Container>
   );
-}
+};
 
 export default About;

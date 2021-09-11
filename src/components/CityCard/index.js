@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-import formatDate from '~/util/formatDate';
+import { formatDate } from '~/util';
 
 // import sp from '~/assets/SP.png';
 
 import { Container, Top, Middle } from './styles';
 
-function CityCard({ city }) {
+const CityCard = ({ city }) => {
   return (
     <Container>
       <Top>
@@ -33,6 +33,6 @@ function CityCard({ city }) {
       </Middle>
     </Container>
   );
-}
+};
 
 export default CityCard;

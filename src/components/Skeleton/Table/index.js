@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Container } from './styles';
 
-function Table() {
+const Table = () => {
   return <Container />;
-}
+};
 
 export default Table;

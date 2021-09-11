@@ -2,18 +2,16 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Observer from '@researchgate/react-intersection-observer';
 
-import SkeletonCountriesList from '~/components/Skeleton/Countries';
-import Input from '~/components/Input';
-import CountriesList from '~/components/CountriesList';
+import { SkeletonCountriesList, Input, CountriesList } from '~/components';
 import {
   getWorldInfoRequest,
   setCountrySearchInput,
 } from '~/store/modules/application/actions';
-import formatString from '~/util/formatString';
+import { formatString } from '~/util';
 
 import { Container } from './styles';
 
-function World() {
+const World = () => {
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
   const { world, loading, countrySearchInput } = useSelector(
@@ -65,6 +63,6 @@ function World() {
       )}
     </Container>
   );
-}
+};
 
 export default World;

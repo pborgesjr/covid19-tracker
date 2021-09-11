@@ -13,7 +13,7 @@ const INITIAL_STATE = {
   // citySearchInput: '',
 };
 
-export default function application(state = INITIAL_STATE, action) {
+const application = (state = INITIAL_STATE, action) => {
   return produce(state, (draft) => {
     switch (action.type) {
       case '@application/COUNTRY_REQUEST': {
@@ -67,4 +67,6 @@ export default function application(state = INITIAL_STATE, action) {
       default:
     }
   });
-}
+};
+
+export default application;

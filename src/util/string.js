@@ -9,4 +9,4 @@ const formatString = (searchValue) => {
   return searchValue.toUpperCase();
 };
 
-export default formatString;
+export { formatString };

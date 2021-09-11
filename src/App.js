@@ -5,13 +5,13 @@ import 'intersection-observer';
 
 import { ToastContainer } from 'react-toastify';
 
-import history from '~/services/history';
+import { history } from '~/services';
 import { store } from './store/index';
 import Routes from '~/routes/index';
 
 import GlobalStyle from '~/styles/global';
 
-function App() {
+const App = () => {
   return (
     <Provider store={store}>
       <Router history={history}>
@@ -21,6 +21,6 @@ function App() {
       </Router>
     </Provider>
   );
-}
+};
 
 export default App;
